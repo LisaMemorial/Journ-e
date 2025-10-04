@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Test React – Journée</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+      body { font-family: sans-serif; margin: 20px; }
+      header { background: #f9f9f9; padding: 10px; border-bottom: 1px solid #ccc; }
+      nav a { margin: 0 8px; text-decoration: none; color: #333; }
+      nav a:hover { color: #0070f3; }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+      const { useState } = React;
+
+      function LisaMemorialDaySite() {
+        const [menuOpen, setMenuOpen] = useState(false);
+
+        const navItems = [
+          { id: "about", label: "À propos" },
+          { id: "program", label: "Programme" },
+          { id: "speakers", label: "Intervenants" },
+          { id: "committees", label: "Comités" },
+          { id: "calls", label: "Appels" },
+          { id: "info", label: "Infos pratiques" },
+          { id: "register", label: "Inscription" },
+          { id: "contact", label: "Contact" },
+        ];
+
+        return (
+          <div>
+            <header>
+              <h1>Journée de recherche – LISA</h1>
+              <button onClick={() => setMenuOpen(!menuOpen)}>
+                {menuOpen ? "Fermer" : "Menu"}
+              </button>
+              {menuOpen && (
+                <nav>
+                  {navItems.map((n) => (
+                    <a key={n.id} href={`#${n.id}`}>{n.label}</a>
+                  ))}
+                </nav>
+              )}
+            </header>
+
+            <section>
+              <h2>Hommage au Pr. Mohamed Alfidi</h2>
+              <p>Une journée scientifique pour honorer son héritage académique, humain et institutionnel.</p>
+            </section>
+          </div>
+        );
+      }
+
+      ReactDOM.createRoot(document.getElementById("root")).render(<LisaMemorialDaySite />);
+    </script>
+  </body>
+</html>
