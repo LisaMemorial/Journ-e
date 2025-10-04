@@ -37,8 +37,9 @@
         text-decoration: none;
         color: #1b4965;
         font-weight: bold;
+        cursor: pointer;
       }
-      nav a:hover {
+      nav a:hover, nav a.active {
         background-color: #e8f0f8;
         color: #62b6cb;
       }
@@ -66,9 +67,7 @@
         border-radius: 6px;
         cursor: pointer;
       }
-      button:hover {
-        background-color: #62b6cb;
-      }
+      button:hover { background-color: #62b6cb; }
       .card {
         background-color: #f9fafc;
         border: 1px solid #ddd;
@@ -82,7 +81,22 @@
     <div id="root"></div>
 
     <script type="text/babel">
+      const { useState } = React;
+
       function LisaMemorialDaySite() {
+        const [activeSection, setActiveSection] = useState("about");
+
+        const navItems = [
+          { id: "about", label: "À propos" },
+          { id: "program", label: "Programme" },
+          { id: "calls", label: "Appels à communications" },
+          { id: "speakers", label: "Intervenants" },
+          { id: "committees", label: "Comités" },
+          { id: "register", label: "Inscription" },
+          { id: "info", label: "Infos pratiques" },
+          { id: "contact", label: "Contact" },
+        ];
+
         return (
           <div>
             <header>
@@ -91,89 +105,108 @@
             </header>
 
             <nav>
-              <a href="#about">À propos</a>
-              <a href="#program">Programme</a>
-              <a href="#calls">Appels à communications</a>
-              <a href="#speakers">Intervenants</a>
-              <a href="#committees">Comités</a>
-              <a href="#register">Inscription</a>
-              <a href="#info">Infos pratiques</a>
-              <a href="#contact">Contact</a>
+              {navItems.map((n) => (
+                <a
+                  key={n.id}
+                  onClick={() => setActiveSection(n.id)}
+                  className={activeSection === n.id ? "active" : ""}
+                >
+                  {n.label}
+                </a>
+              ))}
             </nav>
 
-            <section id="about">
-              <h2>À propos</h2>
-              <p>
-                Cette journée scientifique rend hommage au Professeur Mohamed Alfidi, pour son
-                engagement académique, son leadership et sa contribution au rayonnement du Laboratoire LISA.
-              </p>
-              <p>
-                Elle réunira enseignants, chercheurs et doctorants autour de thématiques variées
-                liées à l’énergie, l’intelligence artificielle et les systèmes durables.
-              </p>
-            </section>
+            <main>
+              {activeSection === "about" && (
+                <section>
+                  <h2>À propos</h2>
+                  <p>
+                    Cette journée scientifique rend hommage au Professeur Mohamed Alfidi, pour son
+                    engagement académique, son leadership et sa contribution au rayonnement du Laboratoire LISA.
+                  </p>
+                  <p>
+                    Elle réunira enseignants, chercheurs et doctorants autour de thématiques variées
+                    liées à l’énergie, l’intelligence artificielle et les systèmes durables.
+                  </p>
+                </section>
+              )}
 
-            <section id="program">
-              <h2>Programme prévisionnel</h2>
-              <div className="card">
-                <strong>Matin :</strong> Cérémonie d’ouverture, interventions d’invités d’honneur et exposés pléniers.
-              </div>
-              <div className="card">
-                <strong>Après-midi :</strong> Sessions doctorales : présentation de posters et communications orales.
-              </div>
-            </section>
+              {activeSection === "program" && (
+                <section>
+                  <h2>Programme prévisionnel</h2>
+                  <div className="card">
+                    <strong>Matin :</strong> Cérémonie d’ouverture, interventions d’invités d’honneur et exposés pléniers.
+                  </div>
+                  <div className="card">
+                    <strong>Après-midi :</strong> Sessions doctorales : présentation de posters et communications orales.
+                  </div>
+                </section>
+              )}
 
-            <section id="calls">
-              <h2>Appels à communications</h2>
-              <p>
-                Les doctorants sont invités à soumettre leurs travaux sous forme de <strong>communication orale</strong> ou de <strong>poster</strong>.
-              </p>
-              <p>
-                <strong>Date limite de soumission :</strong> 15 novembre 2025<br/>
-                <strong>Notification d’acceptation :</strong> 25 novembre 2025
-              </p>
-              <button>Soumettre un papier</button>
-              <button style={{marginLeft: '10px'}}>Soumettre un poster</button>
-            </section>
+              {activeSection === "calls" && (
+                <section>
+                  <h2>Appels à communications</h2>
+                  <p>
+                    Les doctorants sont invités à soumettre leurs travaux sous forme de <strong>communication orale</strong> ou de <strong>poster</strong>.
+                  </p>
+                  <p>
+                    <strong>Date limite de soumission :</strong> 15 novembre 2025<br/>
+                    <strong>Notification d’acceptation :</strong> 25 novembre 2025
+                  </p>
+                  <button>Soumettre un papier</button>
+                  <button style={{marginLeft: '10px'}}>Soumettre un poster</button>
+                </section>
+              )}
 
-            <section id="speakers">
-              <h2>Intervenants invités</h2>
-              <div className="card">Pr. A. Lahlou – Université Hassan II Casablanca</div>
-              <div className="card">Pr. Y. Chaibi – USMBA Fès</div>
-              <div className="card">Pr. Z. Chalh – USMBA Fès</div>
-            </section>
+              {activeSection === "speakers" && (
+                <section>
+                  <h2>Intervenants invités</h2>
+                  <div className="card">Pr. A. Lahlou – Université Hassan II Casablanca</div>
+                  <div className="card">Pr. Y. Chaibi – USMBA Fès</div>
+                  <div className="card">Pr. Z. Chalh – USMBA Fès</div>
+                </section>
+              )}
 
-            <section id="committees">
-              <h2>Comités</h2>
-              <div className="card">
-                <strong>Comité scientifique :</strong> composé de professeurs et chercheurs du LISA et de ses partenaires.
-              </div>
-              <div className="card">
-                <strong>Comité d’organisation :</strong> doctorants et enseignants du laboratoire.
-              </div>
-            </section>
+              {activeSection === "committees" && (
+                <section>
+                  <h2>Comités</h2>
+                  <div className="card">
+                    <strong>Comité scientifique :</strong> composé de professeurs et chercheurs du LISA et de ses partenaires.
+                  </div>
+                  <div className="card">
+                    <strong>Comité d’organisation :</strong> doctorants et enseignants du laboratoire.
+                  </div>
+                </section>
+              )}
 
-            <section id="register">
-              <h2>Inscription</h2>
-              <p>L’inscription est gratuite mais obligatoire.</p>
-              <button>S’inscrire à la journée</button>
-            </section>
+              {activeSection === "register" && (
+                <section>
+                  <h2>Inscription</h2>
+                  <p>L’inscription est gratuite mais obligatoire.</p>
+                  <button>S’inscrire à la journée</button>
+                </section>
+              )}
 
-            <section id="info">
-              <h2>Infos pratiques</h2>
-              <p>
-                📍 Lieu : École Nationale des Sciences Appliquées de Fès<br />
-                📅 Date : 10 décembre 2025<br />
-                🕘 Heure : 9h00 – 17h30
-              </p>
-            </section>
+              {activeSection === "info" && (
+                <section>
+                  <h2>Infos pratiques</h2>
+                  <p>
+                    📍 Lieu : École Nationale des Sciences Appliquées de Fès<br />
+                    📅 Date : 10 décembre 2025<br />
+                    🕘 Heure : 9h00 – 17h30
+                  </p>
+                </section>
+              )}
 
-            <section id="contact">
-              <h2>Contact</h2>
-              <p>
-                Pour toute question : <a href="mailto:lisa.usmba@gmail.com">lisa.usmba@gmail.com</a>
-              </p>
-            </section>
+              {activeSection === "contact" && (
+                <section>
+                  <h2>Contact</h2>
+                  <p>
+                    Pour toute question : <a href="mailto:lisa.usmba@gmail.com">lisa.usmba@gmail.com</a>
+                  </p>
+                </section>
+              )}
+            </main>
 
             <footer>
               <p>© 2025 Laboratoire LISA – Université Sidi Mohamed Ben Abdellah</p>
