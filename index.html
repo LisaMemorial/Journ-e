@@ -1,223 +1,105 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Journée de Recherche – Hommage au Pr. Mohamed Alfidi</title>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Journée de recherche – LISA</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 text-gray-800">
+  <!-- Header -->
+  <header class="sticky top-0 bg-white shadow z-50">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+      <div class="flex items-center space-x-3">
+        <img src="logo-ensaf.png" alt="ENSA Fès" class="w-10 h-10 rounded" />
+        <div>
+          <h1 class="font-bold text-lg">Laboratoire LISA – ENSA Fès</h1>
+          <p class="text-sm text-gray-500">USMBA</p>
+        </div>
+      </div>
+      <nav class="space-x-6 hidden md:flex">
+        <a href="#about" class="hover:text-indigo-600">À propos</a>
+        <a href="#program" class="hover:text-indigo-600">Programme</a>
+        <a href="#speakers" class="hover:text-indigo-600">Intervenants</a>
+        <a href="#calls" class="hover:text-indigo-600">Appels</a>
+        <a href="#info" class="hover:text-indigo-600">Infos pratiques</a>
+        <a href="#register" class="hover:text-indigo-600">Inscription</a>
+        <a href="#contact" class="hover:text-indigo-600">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-    <!-- React + Babel -->
-    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-    <script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <!-- À propos -->
+  <section id="about" class="py-20 max-w-4xl mx-auto px-4">
+    <h2 class="text-3xl font-bold mb-4">Journée de recherche en hommage au <span class="text-indigo-600">Pr. Mohamed Alfidi</span></h2>
+    <p>Membre fondateur du Laboratoire LISA depuis 2015. Cette journée scientifique rend hommage à son héritage académique, humain et institutionnel.</p>
+  </section>
 
-    <style>
-      * { box-sizing: border-box; }
-      body {
-        font-family: "Segoe UI", Roboto, sans-serif;
-        margin: 0;
-        background-color: #f5f7fb;
-        color: #333;
-      }
-      header {
-        background: linear-gradient(135deg, #1b4965, #62b6cb);
-        color: white;
-        padding: 20px;
-        text-align: center;
-      }
-      header h1 { margin: 0; font-size: 2rem; }
-      nav {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        background-color: #ffffff;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      }
-      nav a {
-        padding: 14px 20px;
-        text-decoration: none;
-        color: #1b4965;
-        font-weight: bold;
-        cursor: pointer;
-        transition: background 0.3s;
-      }
-      nav a:hover,
-      nav a.active {
-        background-color: #e8f0f8;
-        color: #62b6cb;
-      }
-      section {
-        max-width: 900px;
-        margin: 40px auto;
-        background: #fff;
-        border-radius: 10px;
-        padding: 30px;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-      }
-      h2 { color: #1b4965; border-bottom: 2px solid #62b6cb; padding-bottom: 5px; }
-      footer {
-        background-color: #1b4965;
-        color: white;
-        text-align: center;
-        padding: 20px;
-        margin-top: 40px;
-      }
-      button {
-        background-color: #1b4965;
-        color: white;
-        border: none;
-        padding: 10px 15px;
-        border-radius: 6px;
-        cursor: pointer;
-        transition: background 0.3s;
-      }
-      button:hover {
-        background-color: #62b6cb;
-      }
-      .card {
-        background-color: #f9fafc;
-        border: 1px solid #ddd;
-        border-radius: 10px;
-        padding: 15px;
-        margin: 10px 0;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="root"></div>
+  <!-- Programme -->
+  <section id="program" class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4">
+      <h2 class="text-3xl font-bold mb-6">Programme</h2>
+      <ul class="space-y-3 text-lg">
+        <li>09:00 - Accueil des participants</li>
+        <li>09:30 - Discours d'ouverture</li>
+        <li>10:00 - Session scientifique 1</li>
+        <li>11:30 - Pause café</li>
+        <li>12:00 - Session scientifique 2</li>
+        <li>13:30 - Déjeuner</li>
+        <li>14:30 - Session scientifique 3</li>
+        <li>16:00 - Clôture de la journée</li>
+      </ul>
+    </div>
+  </section>
 
-    <script type="text/babel">
-      const { useState } = React;
+  <!-- Intervenants -->
+  <section id="speakers" class="py-20 max-w-5xl mx-auto px-4">
+    <h2 class="text-3xl font-bold mb-6">Intervenants invités</h2>
+    <ul class="list-disc list-inside space-y-2">
+      <li>Pr. A. Lahlou – Université Hassan II Casablanca</li>
+      <li>Pr. Y. Chaibi – USMBA Fès</li>
+      <li>Pr. Z. Chalh – USMBA Fès</li>
+    </ul>
+  </section>
 
-      function LisaMemorialDaySite() {
-        const [activeSection, setActiveSection] = useState("about");
+  <!-- Appels -->
+  <section id="calls" class="py-20 bg-gray-50">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold mb-6">Appels à communications</h2>
+      <p class="mb-4">Les doctorants sont invités à soumettre leurs travaux sous forme de communication orale ou de poster.</p>
+      <p>Date limite de soumission : <strong>15 novembre 2025</strong></p>
+      <p>Notification d’acceptation : <strong>25 novembre 2025</strong></p>
+      <div class="mt-6 space-x-4">
+        <a href="#" class="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700">Soumettre un papier</a>
+        <a href="#" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Soumettre un poster</a>
+      </div>
+    </div>
+  </section>
 
-        const sections = {
-          about: (
-            <section>
-              <h2>À propos</h2>
-              <p>
-                Cette journée scientifique rend hommage au Professeur Mohamed Alfidi,
-                pour son engagement académique, son leadership et sa contribution
-                au rayonnement du Laboratoire LISA.
-              </p>
-              <p>
-                Elle réunira enseignants, chercheurs et doctorants autour de thématiques
-                variées liées à l’énergie, l’intelligence artificielle et les systèmes durables.
-              </p>
-            </section>
-          ),
-          program: (
-            <section>
-              <h2>Programme prévisionnel</h2>
-              <div className="card">
-                <strong>Matin :</strong> Cérémonie d’ouverture, interventions d’invités d’honneur et exposés pléniers.
-              </div>
-              <div className="card">
-                <strong>Après-midi :</strong> Sessions doctorales : présentation de posters et communications orales.
-              </div>
-            </section>
-          ),
-          calls: (
-            <section>
-              <h2>Appels à communications</h2>
-              <p>
-                Les doctorants sont invités à soumettre leurs travaux sous forme de <strong>communication orale</strong> ou de <strong>poster</strong>.
-              </p>
-              <p>
-                <strong>Date limite de soumission :</strong> 15 novembre 2025<br />
-                <strong>Notification d’acceptation :</strong> 25 novembre 2025
-              </p>
-              <button>Soumettre un papier</button>
-              <button style={{ marginLeft: "10px" }}>Soumettre un poster</button>
-            </section>
-          ),
-          speakers: (
-            <section>
-              <h2>Intervenants invités</h2>
-              <div className="card">Pr. A. Lahlou – Université Hassan II Casablanca</div>
-              <div className="card">Pr. Y. Chaibi – USMBA Fès</div>
-              <div className="card">Pr. Z. Chalh – USMBA Fès</div>
-            </section>
-          ),
-          committees: (
-            <section>
-              <h2>Comités</h2>
-              <div className="card">
-                <strong>Comité scientifique :</strong> composé de professeurs et chercheurs du LISA et de ses partenaires.
-              </div>
-              <div className="card">
-                <strong>Comité d’organisation :</strong> doctorants et enseignants du laboratoire.
-              </div>
-            </section>
-          ),
-          register: (
-            <section>
-              <h2>Inscription</h2>
-              <p>L’inscription est gratuite mais obligatoire.</p>
-              <button>S’inscrire à la journée</button>
-            </section>
-          ),
-          info: (
-            <section>
-              <h2>Infos pratiques</h2>
-              <p>
-                📍 Lieu : École Nationale des Sciences Appliquées de Fès<br />
-                📅 Date : 10 décembre 2025<br />
-                🕘 Heure : 9h00 – 17h30
-              </p>
-            </section>
-          ),
-          contact: (
-            <section>
-              <h2>Contact</h2>
-              <p>
-                Pour toute question :{" "}
-                <a href="mailto:lisa.usmba@gmail.com">lisa.usmba@gmail.com</a>
-              </p>
-            </section>
-          ),
-        };
+  <!-- Infos pratiques -->
+  <section id="info" class="py-20 max-w-4xl mx-auto px-4">
+    <h2 class="text-3xl font-bold mb-6">Infos pratiques</h2>
+    <p>📍 <strong>Lieu :</strong> École Nationale des Sciences Appliquées de Fès</p>
+    <p>📅 <strong>Date :</strong> 10 décembre 2025</p>
+    <p>🕘 <strong>Heure :</strong> 9h00 – 17h30</p>
+  </section>
 
-        const navItems = [
-          { id: "about", label: "À propos" },
-          { id: "program", label: "Programme" },
-          { id: "calls", label: "Appels à communications" },
-          { id: "speakers", label: "Intervenants" },
-          { id: "committees", label: "Comités" },
-          { id: "register", label: "Inscription" },
-          { id: "info", label: "Infos pratiques" },
-          { id: "contact", label: "Contact" },
-        ];
+  <!-- Inscription -->
+  <section id="register" class="py-20 bg-white text-center">
+    <h2 class="text-3xl font-bold mb-6">Inscription</h2>
+    <p class="mb-4">L’inscription est gratuite mais obligatoire.</p>
+    <a href="#" class="bg-indigo-600 text-white px-6 py-3 rounded-lg hover:bg-indigo-700">S’inscrire à la journée</a>
+  </section>
 
-        return (
-          <div>
-            <header>
-              <h1>Journée de Recherche en Hommage au Pr. Mohamed Alfidi</h1>
-              <p>Organisée par le Laboratoire LISA – USMBA Fès</p>
-            </header>
+  <!-- Contact -->
+  <section id="contact" class="py-20 max-w-4xl mx-auto px-4 text-center">
+    <h2 class="text-3xl font-bold mb-6">Contact</h2>
+    <p>Pour toute question, contactez-nous à : <a href="mailto:lisa.usmba@gmail.com" class="text-indigo-600 underline">lisa.usmba@gmail.com</a></p>
+  </section>
 
-            <nav>
-              {navItems.map((item) => (
-                <a
-                  key={item.id}
-                  className={activeSection === item.id ? "active" : ""}
-                  onClick={() => setActiveSection(item.id)}
-                >
-                  {item.label}
-                </a>
-              ))}
-            </nav>
-
-            <main>{sections[activeSection]}</main>
-
-            <footer>
-              <p>© 2025 Laboratoire LISA – Université Sidi Mohamed Ben Abdellah</p>
-            </footer>
-          </div>
-        );
-      }
-
-      ReactDOM.createRoot(document.getElementById("root")).render(<LisaMemorialDaySite />);
-    </script>
-  </body>
+  <!-- Footer -->
+  <footer class="py-6 bg-gray-900 text-white text-center">
+    <p>© 2025 Laboratoire LISA – USMBA | Journée de recherche en hommage au Pr. Mohamed Alfidi</p>
+  </footer>
+</body>
 </html>
