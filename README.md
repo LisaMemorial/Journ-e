@@ -1,2 +1,0 @@
-# Journ-e
-Website
