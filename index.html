@@ -6,100 +6,107 @@
   <title>Journée de recherche – LISA</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="min-h-screen text-gray-800" style="background-image:url('background.gif'); background-size:cover; background-position:center; background-repeat:no-repeat;">
   <!-- Header -->
-  <header class="sticky top-0 bg-white shadow z-50">
-    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-      <div class="flex items-center space-x-3">
-        <img src="logo-ensaf.png" alt="ENSA Fès" class="w-10 h-10 rounded" />
-        <div>
-          <h1 class="font-bold text-lg">Laboratoire LISA – ENSA Fès</h1>
-          <p class="text-sm text-gray-500">USMBA</p>
+  <header class="sticky top-0 z-40 bg-white/70 backdrop-blur border-b border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <img src="logo-ensaf.png" alt="ENSA Fès" class="w-9 h-9 rounded" />
+        <div class="leading-5">
+          <p class="font-semibold text-sm">Laboratoire LISA – ENSA Fès</p>
+          <p class="text-xs text-gray-500">USMBA</p>
         </div>
       </div>
-      <nav class="space-x-6 hidden md:flex">
-        <a href="#about" class="hover:text-indigo-600">À propos</a>
-        <a href="#program" class="hover:text-indigo-600">Programme</a>
-        <a href="#speakers" class="hover:text-indigo-600">Intervenants</a>
-        <a href="#calls" class="hover:text-indigo-600">Appels</a>
-        <a href="#info" class="hover:text-indigo-600">Infos pratiques</a>
-        <a href="#register" class="hover:text-indigo-600">Inscription</a>
-        <a href="#contact" class="hover:text-indigo-600">Contact</a>
+      <nav class="hidden md:flex items-center gap-6">
+        <a href="about.html" class="text-sm font-medium hover:text-indigo-600">À propos</a>
+        <a href="program.html" class="text-sm font-medium hover:text-indigo-600">Programme</a>
+        <a href="speakers.html" class="text-sm font-medium hover:text-indigo-600">Intervenants</a>
+        <a href="committees.html" class="text-sm font-medium hover:text-indigo-600">Comités</a>
+        <a href="calls.html" class="text-sm font-medium hover:text-indigo-600">Appels</a>
+        <a href="info.html" class="text-sm font-medium hover:text-indigo-600">Infos pratiques</a>
+        <a href="register.html" class="text-sm font-medium hover:text-indigo-600">Inscription</a>
+        <a href="contact.html" class="inline-flex items-center rounded-xl bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow hover:bg-indigo-700">Contact</a>
       </nav>
     </div>
   </header>
 
-  <!-- À propos -->
-  <section id="about" class="py-20 max-w-4xl mx-auto px-4">
-    <h2 class="text-3xl font-bold mb-4">Journée de recherche en hommage au <span class="text-indigo-600">Pr. Mohamed Alfidi</span></h2>
-    <p>Membre fondateur du Laboratoire LISA depuis 2015. Cette journée scientifique rend hommage à son héritage académique, humain et institutionnel.</p>
-  </section>
-
-  <!-- Programme -->
-  <section id="program" class="py-20 bg-white">
-    <div class="max-w-5xl mx-auto px-4">
-      <h2 class="text-3xl font-bold mb-6">Programme</h2>
-      <ul class="space-y-3 text-lg">
-        <li>09:00 - Accueil des participants</li>
-        <li>09:30 - Discours d'ouverture</li>
-        <li>10:00 - Session scientifique 1</li>
-        <li>11:30 - Pause café</li>
-        <li>12:00 - Session scientifique 2</li>
-        <li>13:30 - Déjeuner</li>
-        <li>14:30 - Session scientifique 3</li>
-        <li>16:00 - Clôture de la journée</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- Intervenants -->
-  <section id="speakers" class="py-20 max-w-5xl mx-auto px-4">
-    <h2 class="text-3xl font-bold mb-6">Intervenants invités</h2>
-    <ul class="list-disc list-inside space-y-2">
-      <li>Pr. A. Lahlou – Université Hassan II Casablanca</li>
-      <li>Pr. Y. Chaibi – USMBA Fès</li>
-      <li>Pr. Z. Chalh – USMBA Fès</li>
-    </ul>
-  </section>
-
-  <!-- Appels -->
-  <section id="calls" class="py-20 bg-gray-50">
-    <div class="max-w-4xl mx-auto px-4 text-center">
-      <h2 class="text-3xl font-bold mb-6">Appels à communications</h2>
-      <p class="mb-4">Les doctorants sont invités à soumettre leurs travaux sous forme de communication orale ou de poster.</p>
-      <p>Date limite de soumission : <strong>15 novembre 2025</strong></p>
-      <p>Notification d’acceptation : <strong>25 novembre 2025</strong></p>
-      <div class="mt-6 space-x-4">
-        <a href="#" class="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700">Soumettre un papier</a>
-        <a href="#" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Soumettre un poster</a>
+  <!-- Exemple : about.html -->
+  <section class="relative overflow-hidden py-20">
+    <div class="absolute inset-0 -z-10 bg-gradient-to-br from-indigo-50 via-white to-rose-50"></div>
+    <div class="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-10 items-center">
+      <div>
+        <h1 class="text-4xl font-black text-gray-900">Journée de recherche en hommage au <span class="text-indigo-700">Pr. Mohamed Alfidi</span></h1>
+        <p class="mt-3 text-base text-gray-600">Membre fondateur du Laboratoire LISA (depuis 2015). Une journée scientifique pour honorer son héritage académique, humain et institutionnel.</p>
       </div>
     </div>
   </section>
 
-  <!-- Infos pratiques -->
-  <section id="info" class="py-20 max-w-4xl mx-auto px-4">
-    <h2 class="text-3xl font-bold mb-6">Infos pratiques</h2>
-    <p>📍 <strong>Lieu :</strong> École Nationale des Sciences Appliquées de Fès</p>
-    <p>📅 <strong>Date :</strong> 10 décembre 2025</p>
-    <p>🕘 <strong>Heure :</strong> 9h00 – 17h30</p>
+  <!-- Exemple : program.html -->
+  <section class="py-14 bg-white/80 backdrop-blur">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-3xl font-bold mb-6 text-gray-900">Programme</h2>
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <img src="ima.jpg" alt="Programme" class="rounded-xl shadow-lg w-full" />
+        <div class="text-gray-700 space-y-4">
+          <p>09:00 - Accueil des participants</p>
+          <p>09:30 - Discours d'ouverture</p>
+          <p>10:00 - Session scientifique 1</p>
+          <p>11:30 - Pause café</p>
+          <p>12:00 - Session scientifique 2</p>
+          <p>13:30 - Déjeuner</p>
+          <p>14:30 - Session scientifique 3</p>
+          <p>16:00 - Clôture de la journée</p>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <!-- Inscription -->
-  <section id="register" class="py-20 bg-white text-center">
-    <h2 class="text-3xl font-bold mb-6">Inscription</h2>
-    <p class="mb-4">L’inscription est gratuite mais obligatoire.</p>
-    <a href="#" class="bg-indigo-600 text-white px-6 py-3 rounded-lg hover:bg-indigo-700">S’inscrire à la journée</a>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact" class="py-20 max-w-4xl mx-auto px-4 text-center">
-    <h2 class="text-3xl font-bold mb-6">Contact</h2>
-    <p>Pour toute question, contactez-nous à : <a href="mailto:lisa.usmba@gmail.com" class="text-indigo-600 underline">lisa.usmba@gmail.com</a></p>
+  <!-- Exemple : committees.html -->
+  <section class="py-14 bg-white border-y">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-3xl font-bold mb-6">Comités de la journée</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-indigo-50 rounded-2xl p-6 border">
+          <h3 class="text-xl font-semibold mb-4 text-indigo-800">Comité scientifique</h3>
+          <ul class="list-disc list-inside space-y-2 text-gray-700">
+            <li>Pr. Zakaria CHALH</li>
+            <li>Pr. Nabil EL AKCHIOUI</li>
+            <li>Pr. Mohamed BENDAOUD</li>
+            <li>Pr. El Mehdi MELLOULI</li>
+            <li>Pr. Touria HAIDI</li>
+            <li>Pr. Amine EL FATHI</li>
+            <li>Pr. Abdelmoumen KAABAL</li>
+            <li>Pr. Younes FARHAN</li>
+          </ul>
+        </div>
+        <div class="bg-indigo-50 rounded-2xl p-6 border">
+          <h3 class="text-xl font-semibold mb-4 text-indigo-800">Comité d’organisation</h3>
+          <ul class="list-disc list-inside space-y-2 text-gray-700">
+            <li>Pr. Zakaria CHALH (Président)</li>
+            <li>Pr. Nabil EL AKCHIOUI</li>
+            <li>Pr. Mohamed BENDAOUD</li>
+            <li>Pr. El Mehdi MELLOULI</li>
+            <li>Pr. Touria HAIDI</li>
+            <li>Pr. Amine EL FATHI</li>
+            <li>Pr. Abdelmoumen KAABAL</li>
+            <li>Pr. Younes FARHAN</li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- Footer -->
-  <footer class="py-6 bg-gray-900 text-white text-center">
-    <p>© 2025 Laboratoire LISA – USMBA | Journée de recherche en hommage au Pr. Mohamed Alfidi</p>
+  <footer class="py-10 bg-white border-t">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+        <div>
+          <p class="font-semibold">Laboratoire LISA – ENSA Fès</p>
+          <p class="text-sm text-gray-500">Journée de recherche en hommage au Pr. Mohamed Alfidi</p>
+        </div>
+        <div class="text-sm text-gray-500">© 2025 LISA – USMBA</div>
+      </div>
+    </div>
   </footer>
 </body>
 </html>
