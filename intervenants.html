@@ -1,4 +1,50 @@
-<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Intervenants — Journée LISA</title><link rel="stylesheet" href="assets/css/style.css"></head><body><header>
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Intervenants — Journée LISA</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    .intervenant-card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .intervenant-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    .intervenant-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+    }
+    .intervenant-info {
+      padding: 12px;
+    }
+    .intervenant-info h4 {
+      margin: 0;
+      color: var(--ensa-blue);
+    }
+    .intervenant-info p {
+      margin: 4px 0;
+    }
+    .intervenant-info a {
+      color: var(--ensa-blue);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .intervenant-info a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+<header>
   <div class="header-inner container">
     <div class="brand">
       <img src="assets/images/sidi-mohammed-logo.webp" alt="Logo ENSA Fès">
@@ -11,7 +57,7 @@
       <ul>
         <li><a href="index.html">Accueil</a></li>
         <li><a href="programme.html">Programme</a></li>
-        <li><a href="intervenants.html">Intervenants</a></li>
+        <li><a href="intervenants.html" class="active">Intervenants</a></li>
         <li><a href="comites.html">Comités</a></li>
         <li><a href="appel.html">Appels</a></li>
         <li><a href="infos.html">Infos pratiques</a></li>
@@ -22,11 +68,52 @@
     <a class="cta" href="inscription.html">S'inscrire</a>
   </div>
 </header>
-<main class="container" style="padding-top:20px"><h2>Intervenants</h2><div class="card" style="margin-top:12px"><p class="small">Cliquez sur un intervenant pour voir le profil.</p><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:12px"><div class="card"><img src="assets/images/alfidi.jpg" alt="Pr" style="width:100%;height:140px;object-fit:cover;border-radius:8px"><h4 style="margin-bottom:6px">Pr. Zakaria CHALH</h4><p class="small">Professeur — ENSA Fès<br><a href="https://scholar.google.com/citations?user=LLft2LYAAAAJ&hl=fr" target="_blank">Google Scholar</a></p></div><div class="card"><img src="assets/images/prof-placeholder.jpg" alt="Pr" style="width:100%;height:140px;object-fit:cover;border-radius:8px"><h4 style="margin-bottom:6px">Pr. Nabil EL AKCHIOUI</h4><p class="small">Professeur — ENSA Fès</p></div><div class="card"><img src="assets/images/prof-placeholder.jpg" alt="Pr" style="width:100%;height:140px;object-fit:cover;border-radius:8px"><h4 style="margin-bottom:6px">Pr. Mohamed BENDAOUD</h4><p class="small">Professeur — ENSA Fès</p></div></div></div></main><footer>
+
+<main class="container" style="padding-top:20px">
+  <h2>Nos Intervenants</h2>
+  <p class="small" style="margin-top:8px;">Découvrez les professeurs et chercheurs invités lors de cette journée scientifique.</p>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:20px;">
+    
+    <!-- Intervenant 1 -->
+    <div class="intervenant-card">
+      <img src="assets/images/alfidi.jpg" alt="Pr. Zakaria CHALH">
+      <div class="intervenant-info">
+        <h4>Pr. Zakaria CHALH</h4>
+        <p class="small">Professeur à l’ENSA Fès<br>Spécialiste en systèmes électriques et énergies renouvelables.</p>
+        <a href="https://scholar.google.com/citations?user=8fRhlPEAAAAJ&hl=fr" target="_blank">Profil Google Scholar</a>
+      </div>
+    </div>
+
+    <!-- Intervenant 2 -->
+    <div class="intervenant-card">
+      <img src="assets/images/prof-placeholder.jpg" alt="Pr. Nabil EL AKCHIOUI">
+      <div class="intervenant-info">
+        <h4>Pr. Nabil EL AKCHIOUI</h4>
+        <p class="small">Professeur à l’ENSA Fès<br>Expert en intelligence artificielle appliquée et modélisation numérique.</p>
+      </div>
+    </div>
+
+    <!-- Intervenant 3 -->
+    <div class="intervenant-card">
+      <img src="assets/images/prof-placeholder.jpg" alt="Pr. Mohamed BENDAOUD">
+      <div class="intervenant-info">
+        <h4>Pr. Mohamed BENDAOUD</h4>
+        <p class="small">Professeur à l’ENSA Fès<br>Spécialiste en automatique, contrôle et optimisation des systèmes.</p>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer>
   <div class="footer-inner">
     <div style="max-width:520px">
       <img src="assets/images/sidi-mohammed-logo.webp" alt="Logo" style="height:56px;border-radius:6px">
-      <p class="small" style="margin-top:12px">Laboratoire LISA — ENSA Fès<br>Organisation : lisa.contact@usmba.ac.ma</p>
+      <p class="small" style="margin-top:12px">
+        Laboratoire LISA — ENSA Fès<br>
+        Organisation : lisa.contact@usmba.ac.ma
+      </p>
     </div>
 
     <div class="grid-3" style="flex:1">
@@ -50,4 +137,6 @@
     </div>
   </div>
 </footer>
-</body></html>
+
+</body>
+</html>
