@@ -1,198 +1,144 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Journée LISA – Hommage au Pr. Alfidi</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    body {
-      background-image: url('background.gif');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-    }
-  </style>
-</head>
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { Home, Users, FileText, Calendar, Award } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
-<body class="text-gray-800">
-  <!-- Header -->
-  <header class="sticky top-0 z-40 bg-white/70 backdrop-blur border-b border-gray-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <img src="logo-ensaf.png" alt="ENSA Fès" class="w-9 h-9 rounded" />
-        <div class="leading-5">
-          <p class="font-semibold text-sm">Laboratoire LISA – ENSA Fès</p>
-          <p class="text-xs text-gray-500">USMBA</p>
-        </div>
+export default function JourneeHommage() {
+  const [active, setActive] = useState("home");
+
+  const icons = [
+    { id: "home", icon: <Home size={26} />, label: "Accueil" },
+    { id: "posters", icon: <FileText size={26} />, label: "Posters" },
+    { id: "programme", icon: <Calendar size={26} />, label: "Programme" },
+    { id: "hommage", icon: <Award size={26} />, label: "Hommage" },
+    { id: "team", icon: <Users size={26} />, label: "Doctorants" },
+  ];
+
+  return (
+    <div className="relative min-h-screen bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#334155] text-white overflow-hidden">
+      
+      {/* 🌟 Particules lumineuses flottantes */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {[...Array(25)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute w-1 h-1 bg-[#facc15] rounded-full"
+            initial={{
+              x: Math.random() * window.innerWidth,
+              y: Math.random() * window.innerHeight,
+              opacity: 0,
+            }}
+            animate={{
+              y: [Math.random() * window.innerHeight, -20],
+              opacity: [0, 1, 0],
+            }}
+            transition={{
+              duration: Math.random() * 10 + 10,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: Math.random() * 3,
+            }}
+          />
+        ))}
       </div>
 
-      <!-- Menu Desktop -->
-      <nav class="hidden md:flex items-center gap-6">
-        <button class="nav-btn text-sm font-medium hover:text-indigo-600" data-section="about">À propos</button>
-        <button class="nav-btn text-sm font-medium hover:text-indigo-600" data-section="program">Programme</button>
-        <button class="nav-btn text-sm font-medium hover:text-indigo-600" data-section="speakers">Intervenants</button>
-        <button class="nav-btn text-sm font-medium hover:text-indigo-600" data-section="committees">Comités</button>
-        <button class="nav-btn text-sm font-medium hover:text-indigo-600" data-section="calls">Appels</button>
-        <button class="nav-btn text-sm font-medium hover:text-indigo-600" data-section="info">Infos pratiques</button>
-        <button class="nav-btn text-sm font-medium hover:text-indigo-600" data-section="register">Inscription</button>
-        <button class="nav-btn text-sm font-medium hover:text-indigo-600" data-section="contact">Contact</button>
-      </nav>
+      {/* Barre d'icônes supérieure */}
+      <div className="flex justify-center gap-10 py-8 backdrop-blur-md bg-white/10 shadow-lg rounded-b-2xl border-b border-white/10">
+        {icons.map((item) => (
+          <motion.div
+            key={item.id}
+            className="relative flex flex-col items-center cursor-pointer"
+            whileHover={{ scale: 1.15 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={() => setActive(item.id)}
+          >
+            <motion.div
+              animate={{
+                y: active === item.id ? -5 : 0,
+                color: active === item.id ? "#facc15" : "#f1f5f9",
+              }}
+              transition={{ type: "spring", stiffness: 200 }}
+              className="p-2"
+            >
+              {item.icon}
+            </motion.div>
 
-      <!-- Bouton mobile -->
-      <button id="menu-toggle" class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg hover:bg-gray-100">
-        <svg id="menu-icon" viewBox="0 0 24 24" fill="none" class="w-6 h-6">
-          <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-        </svg>
-      </button>
+            {/* Ligne dorée animée */}
+            {active === item.id && (
+              <motion.div
+                layoutId="underline"
+                className="absolute bottom-[-8px] h-[2px] w-8 bg-[#facc15] rounded-full"
+                transition={{ type: "spring", stiffness: 300 }}
+              />
+            )}
+            <span className="text-sm mt-1 text-gray-300">{item.label}</span>
+          </motion.div>
+        ))}
+      </div>
+
+      {/* Contenu principal */}
+      <motion.div
+        key={active}
+        initial={{ opacity: 0, y: 15 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="mt-20 text-center px-6"
+      >
+        {active === "home" && (
+          <div>
+            <h1 className="text-4xl font-bold mb-4 text-[#facc15]">
+              Journée d’Hommage au Professeur
+            </h1>
+            <p className="text-gray-300 max-w-3xl mx-auto">
+              Une journée dédiée à la mémoire d’un enseignant-chercheur d’exception,
+              marquée par des échanges scientifiques, la présentation de travaux de recherche
+              et des moments de partage.
+            </p>
+          </div>
+        )}
+
+        {active === "hommage" && (
+          <div>
+            <h2 className="text-3xl font-semibold mb-3 text-[#facc15]">Hommage</h2>
+            <p className="text-gray-300 max-w-2xl mx-auto">
+              À travers cette cérémonie, nous rendons hommage à un esprit brillant,
+              passionné par la recherche, l’enseignement et la transmission du savoir.
+            </p>
+          </div>
+        )}
+
+        {active === "posters" && (
+          <div>
+            <h2 className="text-3xl font-semibold mb-3 text-[#facc15]">Exposition des Posters</h2>
+            <p className="text-gray-300 max-w-2xl mx-auto">
+              Les doctorants présenteront leurs travaux sous forme de posters scientifiques.
+              Chaque poster reflète l’excellence et la diversité des recherches menées.
+            </p>
+          </div>
+        )}
+
+        {active === "programme" && (
+          <div>
+            <h2 className="text-3xl font-semibold mb-3 text-[#facc15]">Programme de la Journée</h2>
+            <p className="text-gray-300 max-w-2xl mx-auto">
+              Matinée : Hommage et discours <br />
+              Après-midi : Exposition de posters et échanges scientifiques.
+            </p>
+          </div>
+        )}
+
+        {active === "team" && (
+          <div>
+            <h2 className="text-3xl font-semibold mb-3 text-[#facc15]">Doctorants Participants</h2>
+            <p className="text-gray-300 max-w-2xl mx-auto">
+              Une sélection de doctorants issus de différents laboratoires présenteront leurs travaux.
+            </p>
+            <Button className="mt-6 bg-[#facc15] text-black hover:bg-yellow-400">
+              Voir la liste complète
+            </Button>
+          </div>
+        )}
+      </motion.div>
     </div>
-
-    <!-- Menu Mobile -->
-    <div id="mobile-menu" class="hidden md:hidden border-t border-gray-200 bg-white">
-      <div class="px-4 py-3 space-y-2">
-        <button class="nav-btn block w-full text-left px-3 py-2 rounded-lg text-sm font-medium hover:bg-gray-50" data-section="about">À propos</button>
-        <button class="nav-btn block w-full text-left px-3 py-2 rounded-lg text-sm font-medium hover:bg-gray-50" data-section="program">Programme</button>
-        <button class="nav-btn block w-full text-left px-3 py-2 rounded-lg text-sm font-medium hover:bg-gray-50" data-section="speakers">Intervenants</button>
-        <button class="nav-btn block w-full text-left px-3 py-2 rounded-lg text-sm font-medium hover:bg-gray-50" data-section="committees">Comités</button>
-        <button class="nav-btn block w-full text-left px-3 py-2 rounded-lg text-sm font-medium hover:bg-gray-50" data-section="calls">Appels</button>
-        <button class="nav-btn block w-full text-left px-3 py-2 rounded-lg text-sm font-medium hover:bg-gray-50" data-section="info">Infos pratiques</button>
-        <button class="nav-btn block w-full text-left px-3 py-2 rounded-lg text-sm font-medium hover:bg-gray-50" data-section="register">Inscription</button>
-        <button class="nav-btn block w-full text-left px-3 py-2 rounded-lg text-sm font-medium hover:bg-gray-50" data-section="contact">Contact</button>
-      </div>
-    </div>
-  </header>
-
-  <!-- Contenu principal -->
-  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-10">
-
-    <section id="about" class="content-section">
-      <h1 class="text-4xl font-black text-gray-900 mb-4">
-        Journée de recherche en hommage au <span class="text-indigo-700">Pr. Mohamed Alfidi</span>
-      </h1>
-      <p class="text-gray-700 leading-relaxed">
-        Membre fondateur du Laboratoire LISA (depuis 2015). Une journée scientifique pour honorer son héritage académique,
-        humain et institutionnel. Cette journée vise à rassembler enseignants-chercheurs, doctorants et partenaires
-        autour des travaux inspirés par ses contributions.
-      </p>
-    </section>
-
-    <section id="program" class="content-section hidden">
-      <h2 class="text-3xl font-bold mb-6 text-gray-900">Programme</h2>
-      <div class="grid md:grid-cols-2 gap-8 items-center">
-        <img src="ima.jpg" alt="Programme" class="rounded-xl shadow-lg w-full" />
-        <div class="text-gray-700 space-y-3">
-          <p>09:00 - Accueil des participants</p>
-          <p>09:30 - Discours d'ouverture</p>
-          <p>10:00 - Session scientifique 1</p>
-          <p>11:30 - Pause café</p>
-          <p>12:00 - Session scientifique 2</p>
-          <p>13:30 - Déjeuner</p>
-          <p>14:30 - Session scientifique 3</p>
-          <p>16:00 - Clôture de la journée</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="speakers" class="content-section hidden">
-      <h2 class="text-3xl font-bold mb-6">Intervenants</h2>
-      <p class="text-gray-700">Présentation des invités et de leurs interventions.</p>
-      <ul class="list-disc list-inside mt-3 text-gray-700 space-y-1">
-        <li>Dr. Nadia El Amrani – Énergie durable</li>
-        <li>Pr. Karim Ziani – Transition énergétique</li>
-        <li>Dr. Sara Benali – IA et ingénierie</li>
-      </ul>
-    </section>
-
-    <section id="committees" class="content-section hidden">
-      <h2 class="text-3xl font-bold mb-6">Comités de la journée</h2>
-      <div class="grid md:grid-cols-2 gap-8">
-        <div class="bg-indigo-50 rounded-2xl p-6 border">
-          <h3 class="text-xl font-semibold mb-4 text-indigo-800">Comité scientifique</h3>
-          <ul class="list-disc list-inside space-y-2 text-gray-700">
-            <li>Pr. Zakaria CHALH</li>
-            <li>Pr. Nabil EL AKCHIOUI</li>
-            <li>Pr. Mohamed BENDAOUD</li>
-          </ul>
-        </div>
-        <div class="bg-indigo-50 rounded-2xl p-6 border">
-          <h3 class="text-xl font-semibold mb-4 text-indigo-800">Comité d’organisation</h3>
-          <ul class="list-disc list-inside space-y-2 text-gray-700">
-            <li>Pr. Zakaria CHALH (Président)</li>
-            <li>Pr. El Mehdi MELLOULI</li>
-            <li>Doctorants & jeunes enseignants</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section id="calls" class="content-section hidden">
-      <h2 class="text-3xl font-bold mb-6">Appels à communications</h2>
-      <p class="text-gray-700">Soumission des articles avant le 30 octobre 2025. Thèmes :</p>
-      <ul class="list-disc list-inside mt-3 text-gray-700 space-y-1">
-        <li>Énergie et durabilité</li>
-        <li>Technologies intelligentes</li>
-        <li>Modélisation et simulation</li>
-      </ul>
-    </section>
-
-    <section id="info" class="content-section hidden">
-      <h2 class="text-3xl font-bold mb-6">Infos pratiques</h2>
-      <p class="text-gray-700">📍 Lieu : ENSA de Fès</p>
-      <p class="text-gray-700">📅 Date : 25 novembre 2025</p>
-      <p class="text-gray-700">📧 Contact : lisa@usmba.ac.ma</p>
-    </section>
-
-    <section id="register" class="content-section hidden">
-      <h2 class="text-3xl font-bold mb-6">Inscription</h2>
-      <form class="mt-4 space-y-3 max-w-md">
-        <input type="text" placeholder="Nom complet" class="w-full p-2 border rounded-lg" required />
-        <input type="email" placeholder="Email" class="w-full p-2 border rounded-lg" required />
-        <button type="submit" class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700">
-          S'inscrire
-        </button>
-      </form>
-    </section>
-
-    <section id="contact" class="content-section hidden">
-      <h2 class="text-3xl font-bold mb-6">Contact</h2>
-      <p class="text-gray-700">📩 lisa.contact@usmba.ac.ma</p>
-    </section>
-  </main>
-
-  <footer class="py-10 bg-white/70 border-t mt-10">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
-        <div>
-          <p class="font-semibold">Laboratoire LISA – ENSA Fès</p>
-          <p class="text-sm text-gray-500">Journée en hommage au Pr. Mohamed Alfidi</p>
-        </div>
-        <div class="text-sm text-gray-500">
-          © <span id="year"></span> LISA – USMBA
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    const buttons = document.querySelectorAll('.nav-btn');
-    const sections = document.querySelectorAll('.content-section');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const menuToggle = document.getElementById('menu-toggle');
-
-    menuToggle.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-    });
-
-    buttons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const target = btn.getAttribute('data-section');
-        sections.forEach(sec => sec.classList.toggle('hidden', sec.id !== target));
-        mobileMenu.classList.add('hidden'); // Ferme le menu mobile après clic
-        window.scrollTo({ top: 0, behavior: 'smooth' }); // Remonte en haut
-      });
-    });
-  </script>
-</body>
-</html>
+  );
+}
