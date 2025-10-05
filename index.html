@@ -3,13 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Journée de recherche – LISA</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <title>Journée LISA – Hommage au Pr. Alfidi</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background-image: url('background.gif');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  </style>
 </head>
-<body class="min-h-screen text-gray-800" style="background-image:url('background.gif'); background-size:cover; background-position:center; background-repeat:no-repeat;">
+
+<body class="text-gray-800">
   <!-- Header -->
   <header class="sticky top-0 z-40 bg-white/70 backdrop-blur border-b border-gray-200">
-    <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
       <div class="flex items-center gap-3">
         <img src="logo-ensaf.png" alt="ENSA Fès" class="w-9 h-9 rounded" />
         <div class="leading-5">
@@ -17,37 +26,41 @@
           <p class="text-xs text-gray-500">USMBA</p>
         </div>
       </div>
+
       <nav class="hidden md:flex items-center gap-6">
-        <a href="about.html" class="text-sm font-medium hover:text-indigo-600">À propos</a>
-        <a href="program.html" class="text-sm font-medium hover:text-indigo-600">Programme</a>
-        <a href="speakers.html" class="text-sm font-medium hover:text-indigo-600">Intervenants</a>
-        <a href="committees.html" class="text-sm font-medium hover:text-indigo-600">Comités</a>
-        <a href="calls.html" class="text-sm font-medium hover:text-indigo-600">Appels</a>
-        <a href="info.html" class="text-sm font-medium hover:text-indigo-600">Infos pratiques</a>
-        <a href="register.html" class="text-sm font-medium hover:text-indigo-600">Inscription</a>
-        <a href="contact.html" class="inline-flex items-center rounded-xl bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow hover:bg-indigo-700">Contact</a>
+        <button class="nav-btn text-sm font-medium hover:text-indigo-600" data-section="about">À propos</button>
+        <button class="nav-btn text-sm font-medium hover:text-indigo-600" data-section="program">Programme</button>
+        <button class="nav-btn text-sm font-medium hover:text-indigo-600" data-section="speakers">Intervenants</button>
+        <button class="nav-btn text-sm font-medium hover:text-indigo-600" data-section="committees">Comités</button>
+        <button class="nav-btn text-sm font-medium hover:text-indigo-600" data-section="calls">Appels</button>
+        <button class="nav-btn text-sm font-medium hover:text-indigo-600" data-section="info">Infos pratiques</button>
+        <button class="nav-btn text-sm font-medium hover:text-indigo-600" data-section="register">Inscription</button>
+        <button class="nav-btn text-sm font-medium hover:text-indigo-600" data-section="contact">Contact</button>
       </nav>
     </div>
   </header>
 
-  <!-- Exemple : about.html -->
-  <section class="relative overflow-hidden py-20">
-    <div class="absolute inset-0 -z-10 bg-gradient-to-br from-indigo-50 via-white to-rose-50"></div>
-    <div class="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-10 items-center">
-      <div>
-        <h1 class="text-4xl font-black text-gray-900">Journée de recherche en hommage au <span class="text-indigo-700">Pr. Mohamed Alfidi</span></h1>
-        <p class="mt-3 text-base text-gray-600">Membre fondateur du Laboratoire LISA (depuis 2015). Une journée scientifique pour honorer son héritage académique, humain et institutionnel.</p>
-      </div>
-    </div>
-  </section>
+  <!-- Sections -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-10">
 
-  <!-- Exemple : program.html -->
-  <section class="py-14 bg-white/80 backdrop-blur">
-    <div class="max-w-6xl mx-auto px-4">
+    <!-- A propos -->
+    <section id="about" class="content-section">
+      <h1 class="text-4xl font-black text-gray-900 mb-4">
+        Journée de recherche en hommage au <span class="text-indigo-700">Pr. Mohamed Alfidi</span>
+      </h1>
+      <p class="text-gray-700 leading-relaxed">
+        Membre fondateur du Laboratoire LISA (depuis 2015). Une journée scientifique pour honorer son héritage académique,
+        humain et institutionnel. Cette journée vise à rassembler enseignants-chercheurs, doctorants et partenaires
+        autour des travaux inspirés par ses contributions.
+      </p>
+    </section>
+
+    <!-- Programme -->
+    <section id="program" class="content-section hidden">
       <h2 class="text-3xl font-bold mb-6 text-gray-900">Programme</h2>
       <div class="grid md:grid-cols-2 gap-8 items-center">
         <img src="ima.jpg" alt="Programme" class="rounded-xl shadow-lg w-full" />
-        <div class="text-gray-700 space-y-4">
+        <div class="text-gray-700 space-y-3">
           <p>09:00 - Accueil des participants</p>
           <p>09:30 - Discours d'ouverture</p>
           <p>10:00 - Session scientifique 1</p>
@@ -58,12 +71,21 @@
           <p>16:00 - Clôture de la journée</p>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Exemple : committees.html -->
-  <section class="py-14 bg-white border-y">
-    <div class="max-w-6xl mx-auto px-4">
+    <!-- Intervenants -->
+    <section id="speakers" class="content-section hidden">
+      <h2 class="text-3xl font-bold mb-6">Intervenants</h2>
+      <p class="text-gray-700">Cette section présentera les intervenants invités et leurs thèmes de communication.</p>
+      <ul class="list-disc list-inside mt-3 text-gray-700 space-y-1">
+        <li>Dr. Nadia El Amrani – Thèmes sur l’énergie durable</li>
+        <li>Pr. Karim Ziani – Innovation et transition énergétique</li>
+        <li>Dr. Sara Benali – Intelligence artificielle et ingénierie</li>
+      </ul>
+    </section>
+
+    <!-- Comités -->
+    <section id="committees" class="content-section hidden">
       <h2 class="text-3xl font-bold mb-6">Comités de la journée</h2>
       <div class="grid md:grid-cols-2 gap-8">
         <div class="bg-indigo-50 rounded-2xl p-6 border">
@@ -72,11 +94,6 @@
             <li>Pr. Zakaria CHALH</li>
             <li>Pr. Nabil EL AKCHIOUI</li>
             <li>Pr. Mohamed BENDAOUD</li>
-            <li>Pr. El Mehdi MELLOULI</li>
-            <li>Pr. Touria HAIDI</li>
-            <li>Pr. Amine EL FATHI</li>
-            <li>Pr. Abdelmoumen KAABAL</li>
-            <li>Pr. Younes FARHAN</li>
           </ul>
         </div>
         <div class="bg-indigo-50 rounded-2xl p-6 border">
@@ -84,29 +101,83 @@
           <ul class="list-disc list-inside space-y-2 text-gray-700">
             <li>Pr. Zakaria CHALH (Président)</li>
             <li>Pr. Nabil EL AKCHIOUI</li>
-            <li>Pr. Mohamed BENDAOUD</li>
             <li>Pr. El Mehdi MELLOULI</li>
-            <li>Pr. Touria HAIDI</li>
-            <li>Pr. Amine EL FATHI</li>
-            <li>Pr. Abdelmoumen KAABAL</li>
-            <li>Pr. Younes FARHAN</li>
           </ul>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <!-- Appels -->
+    <section id="calls" class="content-section hidden">
+      <h2 class="text-3xl font-bold mb-6">Appels à communications</h2>
+      <p class="text-gray-700">Les chercheurs sont invités à soumettre leurs travaux avant le 30 octobre 2025. Les thématiques incluent :</p>
+      <ul class="list-disc list-inside mt-3 text-gray-700 space-y-1">
+        <li>Énergie et durabilité</li>
+        <li>Technologies intelligentes</li>
+        <li>Modélisation et simulation</li>
+      </ul>
+    </section>
+
+    <!-- Infos pratiques -->
+    <section id="info" class="content-section hidden">
+      <h2 class="text-3xl font-bold mb-6">Infos pratiques</h2>
+      <p class="text-gray-700">Lieu : École Nationale des Sciences Appliquées de Fès</p>
+      <p class="text-gray-700">Date : 25 novembre 2025</p>
+      <p class="text-gray-700">Contact : lisa@usmba.ac.ma</p>
+    </section>
+
+    <!-- Inscription -->
+    <section id="register" class="content-section hidden">
+      <h2 class="text-3xl font-bold mb-6">Inscription</h2>
+      <p class="text-gray-700">Veuillez remplir le formulaire ci-dessous pour participer :</p>
+      <form class="mt-4 space-y-3 max-w-md">
+        <input type="text" placeholder="Nom complet" class="w-full p-2 border rounded-lg" required />
+        <input type="email" placeholder="Email" class="w-full p-2 border rounded-lg" required />
+        <button type="submit" class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700">
+          S'inscrire
+        </button>
+      </form>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="content-section hidden">
+      <h2 class="text-3xl font-bold mb-6">Contact</h2>
+      <p class="text-gray-700">Pour toute question, veuillez contacter :</p>
+      <p class="text-indigo-700 font-medium mt-2">lisa.contact@usmba.ac.ma</p>
+    </section>
+  </main>
 
   <!-- Footer -->
-  <footer class="py-10 bg-white border-t">
-    <div class="max-w-7xl mx-auto px-4">
+  <footer class="py-10 bg-white/70 border-t mt-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
         <div>
           <p class="font-semibold">Laboratoire LISA – ENSA Fès</p>
           <p class="text-sm text-gray-500">Journée de recherche en hommage au Pr. Mohamed Alfidi</p>
         </div>
-        <div class="text-sm text-gray-500">© 2025 LISA – USMBA</div>
+        <div class="text-sm text-gray-500">
+          © <span id="year"></span> LISA – USMBA
+        </div>
       </div>
     </div>
   </footer>
+
+  <script>
+    // Gérer l’année du footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Gestion dynamique des sections
+    const buttons = document.querySelectorAll('.nav-btn');
+    const sections = document.querySelectorAll('.content-section');
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const target = btn.getAttribute('data-section');
+        sections.forEach(sec => {
+          sec.classList.toggle('hidden', sec.id !== target);
+        });
+      });
+    });
+  </script>
 </body>
 </html>
